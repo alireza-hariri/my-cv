@@ -13,7 +13,8 @@
   fa-icon("linkedin", fill: color-darknight),
 )
 #let github-icon = box(
-  fa-icon("github", fill: color-darknight),
+
+  fa-icon("github", fill: color-darknight, size:11pt),
 )
 #let twitter-icon = box(
   fa-icon("twitter", fill: color-darknight),
@@ -24,9 +25,9 @@
 #let orcid-icon = box(
   fa-icon("orcid", fill: color-darknight),
 )
-#let phone-icon = box(fa-icon("square-phone", fill: color-darknight))
-#let email-icon = box(fa-icon("envelope", fill: color-darknight))
-#let birth-icon = box(fa-icon("cake", fill: color-darknight))
+#let phone-icon = box(fa-icon("square-phone", fill: color-darknight, size:11pt))
+#let email-icon = box(fa-icon("envelope", fill: color-darknight, size:11pt))
+#let birth-icon = box(fa-icon("cake", fill: color-darknight, size:11pt))
 #let homepage-icon = box(fa-icon("home", fill: color-darknight))
 
 /// Helpers
@@ -296,7 +297,7 @@
       ]
     ]
   }
-  
+
   let positions = {
     set text(
       accent-color,
@@ -304,10 +305,13 @@
       weight: "regular",
     )
     align(center)[
-      #smallcaps[
-        #author.positions.join(
-          text[#"  "#sym.dot.c#"  "],
-        )
+      #pad(y: -1pt)[
+
+        #smallcaps[
+          #author.positions.join(
+            text[#"  "#sym.dot.c#"  "],
+          )
+        ]
       ]
     ]
   }
@@ -328,6 +332,7 @@
     set box(height: 9pt)
     
     let separator = box(width: 5pt)
+    let separator_1pt = box(width: 1pt)
     
     align(center)[
       #set text(
@@ -339,31 +344,37 @@
         #align(horizon)[
           #if ("birth" in author) [
             #birth-icon
+            #separator_1pt
             #box[#text(author.birth)]
             #separator
           ]
           #if ("phone" in author) [
             #phone-icon
+            #separator_1pt
             #box[#text(author.phone)]
             #separator
           ]
           #if ("email" in author) [
             #email-icon
+            #separator_1pt
             #box[#link("mailto:" + author.email)[#author.email]]
           ]
           #if ("homepage" in author) [
             #separator
             #homepage-icon
+            #separator_1pt
             #box[#link(author.homepage)[#author.homepage]]
           ]
           #if ("github" in author) [
             #separator
             #github-icon
+            #separator_1pt
             #box[#link("https://github.com/" + author.github)[#author.github]]
           ]
           #if ("linkedin" in author) [
             #separator
             #linkedin-icon
+            #separator_1pt
             #box[
               #link("https://www.linkedin.com/in/" + author.linkedin)[#author.linkedin]
             ]
@@ -371,12 +382,14 @@
           #if ("twitter" in author) [
             #separator
             #twitter-icon
+            #separator_1pt
             #box[#link("https://twitter.com/" + author.twitter)[\@#author.twitter]]
           ]
           #if ("scholar" in author) [
             #let fullname = str(author.firstname + " " + author.lastname)
             #separator
             #google-scholar-icon
+            #separator_1pt
             #box[#link("https://scholar.google.com/citations?user=" + author.scholar)[#fullname]]
           ]
           #if ("orcid" in author) [
