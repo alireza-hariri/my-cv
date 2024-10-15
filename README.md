@@ -10,12 +10,12 @@ we will be using [modern-cv](https://github.com/DeveloperPaul123/modern-cv/tree/
 winget install --id Typst.Typst
 ```
 
-#### 2. download fontawsome (free version) -> right-click the otf files and select Install:
+#### 2. download fontawsome (free version) -> right-click the .otf files and select Install:
 ```
 https://fontawesome.com/download
 ```
 
-#### 3. install the `typst LSP` VScode extension
+#### 3. install the `typst LSP` VSCode extension
 
 # make a project
 ### method-1 (from template)

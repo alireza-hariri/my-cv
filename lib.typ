@@ -280,7 +280,7 @@
       #pad(bottom: 5pt)[
         #block[
           #set text(
-            size: 32pt,
+            size: 33pt,
             style: "normal",
             font: ("Roboto"),
           )
@@ -301,12 +301,11 @@
   let positions = {
     set text(
       accent-color,
-      size: 9pt,
+      size: 12pt,
       weight: "regular",
     )
     align(center)[
-      #pad(y: -1pt)[
-
+      #pad(y: 0pt)[
         #smallcaps[
           #author.positions.join(
             text[#"  "#sym.dot.c#"  "],
@@ -329,14 +328,14 @@
   }
   
   let contacts = {
-    set box(height: 9pt)
+    set box(height: 11pt)
     
     let separator = box(width: 5pt)
     let separator_1pt = box(width: 1pt)
     
     align(center)[
       #set text(
-        size: 9pt,
+        size: 10pt,
         weight: "regular",
         style: "normal",
       )
@@ -376,7 +375,7 @@
             #linkedin-icon
             #separator_1pt
             #box[
-              #link("https://www.linkedin.com/in/" + author.linkedin)[#author.linkedin]
+              #link("https://www.linkedin.com/in/" + author.linkedin)[#author.linkedinName]
             ]
           ]
           #if ("twitter" in author) [
